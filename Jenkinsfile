@@ -5,10 +5,10 @@ pipeline {
   //       maven 'Maven'
   //  }
 
-  // environment {
-    dockerimagename = "aacountname/spring-boot-k8s"
-    dockerImage = ""
-  }
+  //  environment {
+  //   dockerimagename = "aacountname/spring-boot-k8s"
+  //   dockerImage = ""
+  // }
 
   agent any
 

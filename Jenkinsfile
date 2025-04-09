@@ -1,25 +1,25 @@
 pipeline {
 
-  tools {
-        // Specify the name of the Maven installation defined in Jenkins
-        maven 'Maven'
-   }
+  // tools {
+  //       // Specify the name of the Maven installation defined in Jenkins
+  //       maven 'Maven'
+  //  }
 
-  environment {
-    dockerimagename = "aacountname/spring-boot-k8s"
-    dockerImage = ""
-  }
+  // environment {
+  //   dockerimagename = "aacountname/spring-boot-k8s"
+  //   dockerImage = ""
+  // }
 
-  agent any
+  // agent any
 
-  stages {
+  // stages {
 
-    stage('Build App') {
-        steps {
-            // Build your Spring Boot application
-            sh 'mvn clean package' // Adjust your build command
-        }
-    }
+  //   stage('Build App') {
+  //       steps {
+  //           // Build your Spring Boot application
+  //           sh 'mvn clean package' // Adjust your build command
+  //       }
+  //   }
     
     stage('Build image') {
       steps{

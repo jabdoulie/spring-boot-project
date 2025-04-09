@@ -29,22 +29,22 @@ pipeline {
       }
     }
 
-    stage('Pushing Image') {
-      environment {
-               registryCredential = 'dockerhub-credentials'
-           }
-      steps{
-        script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
-          }
-        }
-      }
-    }
+  //  stage('Pushing Image') {
+  //     environment {
+  //              registryCredential = 'dockerhub-credentials'
+  //          }
+  //     steps{
+  //       script {
+  //         docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+  //           dockerImage.push("latest")
+  //         }
+  //       }
+  //     }
+  //   }
 
     stage('Deploy to Kubernetes') {
       steps{
-          withKubeConfig([credentialsId: 'mykubeconfig', serverUrl: 'https://192.168.49.2:8443']) {
+          withKubeConfig([credentialsId: 'mykubeconfig', serverUrl: 'http://192.168.8.10']) {
             sh 'kubectl apply -f deployment-k8s.yaml'
         }
       }
